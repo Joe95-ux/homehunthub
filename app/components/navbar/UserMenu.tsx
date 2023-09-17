@@ -4,6 +4,7 @@ import Avatar from "../Avatar";
 import { useCallback, useState } from "react";
 import MenuItem from "./MenuItem";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
+import router from "next/router";
 
 
 const UserMenu = () => {
