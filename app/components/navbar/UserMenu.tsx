@@ -4,10 +4,15 @@ import Avatar from "../Avatar";
 import { useCallback, useState } from "react";
 import MenuItem from "./MenuItem";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
+// import { SafeUser } from "@/app/types";
 import router from "next/router";
 
+interface UserMenuProps {
+  currentUser?: string | null
+}
 
-const UserMenu = () => {
+
+const UserMenu : React.FC<UserMenuProps> =  ({currentUser}) => {
   const registerModal = useRegisterModal();
   const [isOpen, setIsOpen] = useState(false);
   const toggleOpen = useCallback(() => {
@@ -95,19 +100,19 @@ const UserMenu = () => {
                 />
                 <MenuItem 
                   label="Airbnb your home" 
-                  onClick={rentModal.onOpen}
+                  onClick={()=> ''}
                 />
                 <hr />
                 <MenuItem 
                   label="Logout" 
-                  onClick={() => signOut()}
+                  onClick={() => ''}
                 />
               </>
             ) : (
               <>
                 <MenuItem 
                   label="Login" 
-                  onClick={loginModal.onOpen}
+                  onClick={()=>''}
                 />
                 <MenuItem 
                   label="Sign up" 
