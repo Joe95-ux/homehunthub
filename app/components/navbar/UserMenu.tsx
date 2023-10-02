@@ -6,6 +6,7 @@ import MenuItem from "./MenuItem";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 // import { SafeUser } from "@/app/types";
 import router from "next/router";
+import useLoginModal from "@/app/hooks/useLoginModal";
 
 interface UserMenuProps {
   currentUser?: string | null
@@ -14,6 +15,7 @@ interface UserMenuProps {
 
 const UserMenu : React.FC<UserMenuProps> =  ({currentUser}) => {
   const registerModal = useRegisterModal();
+  const loginModal = useLoginModal();
   const [isOpen, setIsOpen] = useState(false);
   const toggleOpen = useCallback(() => {
     setIsOpen((value) => !value);
@@ -112,7 +114,7 @@ const UserMenu : React.FC<UserMenuProps> =  ({currentUser}) => {
               <>
                 <MenuItem 
                   label="Login" 
-                  onClick={()=>''}
+                  onClick={loginModal.onOpen}
                 />
                 <MenuItem 
                   label="Sign up" 
