@@ -7,9 +7,11 @@ import useRegisterModal from "@/app/hooks/useRegisterModal";
 // import { SafeUser } from "@/app/types";
 import router from "next/router";
 import useLoginModal from "@/app/hooks/useLoginModal";
+import { signOut } from "next-auth/react";
+import { SafeUser } from "@/app/types";
 
 interface UserMenuProps {
-  currentUser?: string | null
+  currentUser?: SafeUser | null
 }
 
 
@@ -107,7 +109,7 @@ const UserMenu : React.FC<UserMenuProps> =  ({currentUser}) => {
                 <hr />
                 <MenuItem 
                   label="Logout" 
-                  onClick={() => ''}
+                  onClick={() => signOut()}
                 />
               </>
             ) : (
